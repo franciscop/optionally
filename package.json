@@ -7,7 +7,12 @@
   "scripts": {
     "test": "jest --detectOpenHandles"
   },
-  "keywords": [],
+  "keywords": ["options", "parser", "validate", "validation", "object", "parameters", "environment"],
+  "files": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franciscop/optionally"
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {},
