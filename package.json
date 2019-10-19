@@ -1,13 +1,21 @@
 {
   "name": "optionally",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Option parser with schema definition and descriptive errors",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "jest --detectOpenHandles"
   },
-  "keywords": ["options", "parser", "validate", "validation", "object", "parameters", "environment"],
+  "keywords": [
+    "options",
+    "parser",
+    "validate",
+    "validation",
+    "object",
+    "parameters",
+    "environment"
+  ],
   "files": [],
   "repository": {
     "type": "git",
