@@ -1,6 +1,6 @@
 {
   "name": "optionally",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Option parser with schema definition and descriptive errors",
   "main": "index.js",
   "type": "module",
