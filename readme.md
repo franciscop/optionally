@@ -1,4 +1,4 @@
-# optionally [![npm install optionally](https://img.shields.io/badge/npm%20install-optionally-blue.svg)](https://www.npmjs.com/package/optionally) [![gzip size](https://img.badgesize.io/franciscop/optionally/master/optionally.min.js.svg?compression=gzip&label=size)](https://github.com/franciscop/optionally/blob/master/optionally.min.js) [![dependencies](https://img.shields.io/david/franciscop/optionally.svg)](https://github.com/franciscop/optionally/blob/master/package.json)
+# optionally [![npm install optionally](https://img.shields.io/badge/npm%20install-optionally-blue.svg)](https://www.npmjs.com/package/optionally) [![gzip size](https://img.badgesize.io/franciscop/optionally/master/optionally.js.svg?compression=gzip&label=size)](https://github.com/franciscop/optionally/blob/master/optionally.js) [![dependencies](https://img.shields.io/david/franciscop/optionally.svg)](https://github.com/franciscop/optionally/blob/master/package.json)
 
 Option parser with schema definition and descriptive errors:
 
