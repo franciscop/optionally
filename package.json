@@ -1,0 +1,44 @@
+{
+  "name": "optionally",
+  "version": "0.1.0",
+  "description": "Option parser with schema definition and descriptive errors",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest --detectOpenHandles"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.4",
+    "jest": "^24.8.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-syntax-dynamic-import"
+      ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "dynamic-import-node"
+        ]
+      }
+    }
+  }
+}
