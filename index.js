@@ -25,6 +25,7 @@ const findArgKey = (name, def, arg) => {
   if (typeof def === "string") {
     name = def;
   }
+  // The argument is _required to be empty_, but it was given
   if (def === false && typeof arg[name] !== "undefined") {
     throw new OptionsError("noarg", { name });
   }
@@ -87,8 +88,12 @@ const validateValue = (value, def) => {
 
   // Validate that it is set
   if (def.required) {
-    if (typeof value === "undefined") {
+    if (typeof value === "undefined" || value === null) {
       throw new OptionsError("required", { name });
+    }
+    // Empty string is the only falsy value that is not valid
+    if (typeof value === 'string' && !value) {
+      throw new OptionsError('required', { name });
     }
   }
 

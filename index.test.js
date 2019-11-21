@@ -61,6 +61,12 @@ describe("optionally", () => {
       const options = { port_number: 3000 };
       expect(optionally(schema, options)).toEqual({ port: 3000 });
     });
+
+    it("throws when passing NaN", () => {
+      const schema = { public: { type: Number } };
+      const options = { public: NaN };
+      expect(() => optionally(schema, options)).toThrow();
+    });
   });
 
   describe("environment", () => {
@@ -135,9 +141,39 @@ describe("optionally", () => {
       expect(optionally(schema, options)).toEqual({ port: 3000 });
     });
 
-    it("will throw when no required value is present", () => {
+    it("can require the number 0", () => {
+      const schema = { port: { type: Number, required: true } };
+      const options = { port: 0 };
+      expect(optionally(schema, options)).toEqual({ port: 0 });
+    });
+
+    it("can require the boolean false", () => {
+      const schema = { port: { type: Boolean, required: true } };
+      const options = { port: false };
+      expect(optionally(schema, options)).toEqual({ port: false });
+    });
+
+    it("throws when no required value is present", () => {
       const schema = { port: { type: Number, required: true } };
       const options = {};
+      expect(() => optionally(schema, options)).toThrow();
+    });
+
+    it("throws when required is null", () => {
+      const schema = { public: { type: String, required: true } };
+      const options = { public: null };
+      expect(() => optionally(schema, options)).toThrow();
+    });
+
+    it("throws when required is NaN", () => {
+      const schema = { public: { type: Number, required: true } };
+      const options = { public: NaN };
+      expect(() => optionally(schema, options)).toThrow();
+    });
+
+    it("throws when required is empty string", () => {
+      const schema = { public: { type: String, required: true } };
+      const options = { public: "" };
       expect(() => optionally(schema, options)).toThrow();
     });
   });
@@ -177,7 +213,7 @@ describe("optionally", () => {
       expect(optionally(schema, { port: 3000 })).toEqual({ port: 3000 });
     });
 
-    it("will throw when the type does not match", () => {
+    it("throws when the type does not match", () => {
       const schema = { port: { type: Number } };
       expect(() => optionally(schema, { port: "3000" })).toThrow();
     });
