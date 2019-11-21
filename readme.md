@@ -39,7 +39,7 @@ Internally it works in three steps, if you provide the main function then it wil
 
 - `find()`: uses `env` > `arg` > `inherit` > `default` (in order) to attempt to get a value out of the arguments and environment.
 - `clean()`: uses `extend`, `file` and `folder` to expand the previously found value.
-- `validate()`: uses `type`, `required`, `enum`,
+- `validate()`: uses `type`, `required`, `enum` to validate the value after cleaning.
 
 Helpers:
 
