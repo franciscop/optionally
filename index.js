@@ -13,7 +13,7 @@ const findEnvKey = (name, def, env) => {
   if (def === false && typeof env[name] !== "undefined") {
     // Windows has an environment variable called "PUBLIC" that points to the
     // "public" user home directory. This is NOT the public folder we want
-    if (!/^win/.test(process.platform) || name !== "public") {
+    if (!process.platform.startsWith("win") || name !== "public") {
       throw new OptionsError("noenv", { name });
     }
   }
@@ -32,7 +32,7 @@ const findArgKey = (name, def, arg) => {
   return def === false ? false : name;
 };
 
-const findParentKey = (name, def, parent) => {
+const findParentKey = (name, def) => {
   if (def === false) {
     return false;
   }
@@ -46,7 +46,7 @@ const findValue = ({ name, arg, env, def, parent }) => {
   // Use the environment variable unless explicitly told not to
   def.env = findEnvKey(name, def.env, env);
   def.arg = findArgKey(name, def.arg, arg);
-  def.inherit = findParentKey(name, def.inherit, parent);
+  def.inherit = findParentKey(name, def.inherit);
 
   // List of possibilities, from HIGHER preference to LOWER preference
   // Removes the empty ones and gets the first one as it has HIGHER pref
@@ -131,7 +131,7 @@ const optionally = (schema, arg = {}, env = {}, parent = {}) => {
   for (let name in schema) {
     // RETRIEVAL
     // Skip the control variables such as '__root'
-    if (/^__/.test(name)) continue;
+    if (name.startsWith("__")) continue;
 
     // Make sure we are dealing with a valid schema definition for this option
     if (typeof schema[name] !== "object") {
