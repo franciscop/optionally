@@ -16,7 +16,7 @@
     "environment"
   ],
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "bun test",
     "lint": "oxlint index.js"
   },
   "main": "index.js",
@@ -24,35 +24,6 @@
   "files": [],
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.4",
-    "babel-plugin-dynamic-import-node": "^2.3.3",
-    "jest": "^24.8.0",
     "oxlint": "^1.89.0"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ],
-    "plugins": [
-      [
-        "@babel/plugin-syntax-dynamic-import"
-      ]
-    ],
-    "env": {
-      "test": {
-        "plugins": [
-          "dynamic-import-node"
-        ]
-      }
-    }
   }
 }
